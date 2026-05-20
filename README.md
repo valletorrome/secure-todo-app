@@ -1,5 +1,15 @@
 # Secure To-Do App
 
+## Repositorio GitHub
+https://github.com/valletorrome/secure-todo-app/tree/main
+
+## Miembros del grupo
+Esta actividad se realiza de forma individual.
+
+| Miembro | Repositorio actividad anterior |
+|---|---|
+| Valle Torromé | https://github.com/valletorrome/secure-todo-app/tree/main |
+
 ## 1. Descripción de la aplicación
 Este proyecto reutiliza una aplicación web tipo To-Do List
 como base para documentar la ejecución de un ciclo de vida
@@ -9,10 +19,16 @@ La aplicación permite añadir tareas pendientes desde una in-
 terfaz web sencilla. Se ejecuta mediante Docker y Docker 
 Compose, lo que facilita su despliegue, reproducción y pruebas.
 
-## 2. Objetivo de la actividad
-El objetivo es seleccionar una aplicación funcional, crear una
-estructura de proyecto adecuada y añadir documentación relacio-
-nada con la seguridad durante las diferentes fases del SDLC.
+## 2. Objetivo de la actividad 2
+El objetivo de esta segunda actividad es continuar el proyecto
+iniciado anteriormente e incorporar una visión DevSecOps al
+desarrollo de la aplicación.
+
+Para ello, se parte de la Web-App tipo To-Do List creada en la
+actividad anterior, se revisan las medidas de seguridad aplica-
+das durante el S-SDLC y se propone una integración de controles
+de seguridad dentro del flujo de desarrollo mediante GitHub, Docker
+y análisis de dependencias.
 
 ## 3. Tecnologías utilizadas
 
@@ -76,9 +92,103 @@ El despliegue se realiza localmente mediante Docker Compose
 Se recomienda revisar dependencias, actualizar imágenes Docker y repetir pruebas
 de seguridad periódicamente
 
-## 8. Evidencias
+## 8. Aplicación de DevSecOps
+DevSecOps consiste en integrar la seguridad dentro de todas las fases del desarrollo,
+en lugar de tratarla como una revisión final.
+
+En este proyecto, DevSecOps se aplica mediante la combinación de desarrollo seguro,
+control de versiones, contenedores Docker y revisión de dependencias.
+
+## Flujo DevSecOps
+
+1. Planificación de requisitos funcionales y de seguridad
+2. Diseño seguro de la estructura del proyecto
+3. Implementación de la aplicación web
+4. Subida del código a GitHub
+5. Revisión de dependencias vulnerables mediante `npm audit`
+6. Construcción del contenedor Docker
+7. Pruebas de ejecución local
+8. Mantenimiento y actualización del proyecto
+
+### Pipeline DevSecOps propuesto
+
+```text
+
+Planificación
+     ↓
+Diseño seguro
+     ↓
+Desarrollo
+     ↓
+Repositorio GitHub
+     ↓
+Análisis de dependencias
+     ↓
+Construcción Docker
+     ↓
+Pruebas
+     ↓
+Despliegue local
+     ↓
+Mantenimiento
+```
+## 8. Herramientas DevSecOps utilizadas o propuestas
+
+- GitHub para control de versiones
+- Docker para crear un entorno reproducible
+- Docker Compose para facilitar la ejecución
+- .gitignore para evitar subir archivos innecesarios
+- npm audit para revisar vulnerabilidades en dependencias
+- Documentación de pruebas funcionales y de seguridad
+
+## 9. Diagrama S-SDLC y DevSecOps
+
+```text
+
+┌────────────────────┐
+│  Planificación     │
+└─────────┬──────────┘
+          ↓
+┌────────────────────┐
+│ Requisitos seguros │
+└─────────┬──────────┘
+          ↓
+┌────────────────────┐
+│  Diseño seguro     │
+└─────────┬──────────┘
+          ↓
+┌────────────────────┐
+│ Implementación     │
+└─────────┬──────────┘
+          ↓
+┌────────────────────┐
+│ Revisión seguridad │
+└─────────┬──────────┘
+          ↓
+┌────────────────────┐
+│ Construcción Docker│
+└─────────┬──────────┘
+          ↓
+┌────────────────────┐
+│ Pruebas            │
+└─────────┬──────────┘
+          ↓
+┌────────────────────┐
+│ Despliegue local   │
+└─────────┬──────────┘
+          ↓
+┌────────────────────┐
+│ Mantenimiento      │
+└────────────────────┘
+```
+
+## 10. Evidencias
 Se han obtenido evidencias de:
 - Aplicación ejecutándose en Docker
 - Aplicación accesible desde navegador
 - Estructura del proyecto en PyCharm
 - Configuración mediante Docker Compose
+- Repositorio publicado en GitHub
+- Documentación S-SDLC
+- Propuesta de flujo DevSecOps
+- Diagrama S-SDLC + DevSecOps
