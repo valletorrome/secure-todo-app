@@ -1,4 +1,4 @@
-# Secure Todo App
+# Secure To-Do App
 
 Actividad universitaria sobre SDLC seguro y Docker.
 
