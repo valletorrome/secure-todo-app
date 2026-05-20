@@ -1,5 +1,18 @@
-# Getting started
+# Secure Todo App
 
-This repository is a sample application for users following the getting started guide at https://docs.docker.com/get-started/.
+Actividad universitaria sobre SDLC seguro y Docker.
 
-The application is based on the application from the getting started tutorial at https://github.com/docker/getting-started
+## Tecnologías
+- Node.js
+- Docker
+- SQLite
+
+## Ejecución
+docker compose up --build
+
+## Seguridad aplicada
+- Threat Modeling
+- Validación de entradas
+- Gestión de dependencias
+- Dockerización segura
+- Testing funcional y de seguridad
