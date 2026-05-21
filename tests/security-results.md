@@ -7,12 +7,12 @@ Comando ejecutado:
 npm audit
 ```
 Resultado observado:
-- La herramienta analizó automáticamente las dependencias instaladas.
-- Se detectaron recomendaciones relacionadas con vulnerabilidades conocidas.
-- npm audit mostró advertencias de seguridad sobre paquetes de Node.js.
-
-Conclusión:
-La herramienta permite identificar rápidamente dependencias inseguras y facilita su actualización.
+- Se detectaron 15 vulnerabilidades en dependencias Node.js.
+- 3 vulnerabilidades bajas.
+- 3 vulnerabilidades moderadas.
+- 9 vulnerabilidades altas.
+- npm audit generó recomendaciones automáticas de mitigación 
+mediante `npm audit fix`.
 
 ## 2. GitHub Actions
 Herramienta utilizada:
@@ -20,11 +20,12 @@ Herramienta utilizada:
 - Workflow: `security.yml`
 
 Resultado observado:
-- El pipeline DevSecOps se ejecutó automáticamente al subir cambios al repositorio.
-- GitHub Actions realizó comprobaciones automáticas del proyecto.
-
-Conclusión:
-GitHub Actions permite automatizar tareas de seguridad y validación dentro del flujo de desarrollo.
+- El workflow `security.yml` se ejecutó automáticamente tras realizar `git push`.
+- GitHub Actions realizó comprobaciones automáticas del pipeline DevSecOps.
+- Durante las pruebas se detectaron errores relacionados con la configuración 
+automática del workflow.
+- GitHub Actions permitió comprobar el funcionamiento real de la automatización 
+CI/CD y DevSecOps.
 
 ## 3. Docker Compose
 Comando ejecutado:
@@ -32,12 +33,11 @@ Comando ejecutado:
 docker compose up --build
 ```
 Resultado observado:
-- Construcción correcta del contenedor.
-- Ejecución funcional de la aplicación web.
-- Acceso correcto desde localhost.
-
-Conclusión:
-Docker facilita la ejecución segura y reproducible del entorno.
+- Construcción correcta del contenedor Docker.
+- Inicio correcto de la aplicación Node.js.
+- Inicialización correcta de SQLite.
+- Acceso funcional desde `http://localhost:3001`.
+- Funcionamiento correcto de la To-Do App desde navegador.
 
 ## 4. .gitignore
 
@@ -50,25 +50,13 @@ node_modules/
 .env
 ```
 Resultado observado:
-- Reducción de archivos innecesarios en el repositorio.
-- Prevención de subida accidental de archivos locales.
-
-Conclusión:
-El uso de `.gitignore` mejora la organización y seguridad del proyecto.
+- Prevención de subida de archivos locales del entorno PyCharm.
+- Eliminación de archivos innecesarios del repositorio GitHub.
+- Mejora de organización y limpieza del proyecto.
+- Protección frente a exposición accidental de información local.
 
 ## 5. GitHub Security y Dependabot
 Resultado observado:
-- GitHub monitoriza automáticamente dependencias y workflows.
-- Se habilitó integración básica de seguridad dentro del repositorio.
-
-Conclusión:
-Las herramientas automáticas de GitHub ayudan a mejorar el mantenimiento 
-seguro del proyecto.
-
-# Conclusión general
-Las herramientas utilizadas permitieron automatizar parte del análisis de 
-seguridad de la aplicación y facilitar la integración de prácticas DevSecOps 
-dentro del proyecto.
-
-El uso combinado de Docker, GitHub Actions, npm audit y GitHub Security permitió 
-detectar riesgos potenciales y mejorar la seguridad del entorno de desarrollo.
+- GitHub monitorizó automáticamente el repositorio y los workflows.
+- Se integraron comprobaciones automáticas relacionadas con seguridad y DevSecOps.
+- GitHub permitió supervisar automáticamente dependencias y automatizaciones del proyecto.

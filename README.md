@@ -157,55 +157,74 @@ automáticas seleccionadas sobre la aplicación.
 ### 1. Resultado de npm audit
 Se ejecutó el siguiente comando
 ```bash
-npm audit
+cd app
+docker run --rm -v "$PWD":/app -w /app node:18 npm audit
 ```
 Resultado obtenido:
-- Detección de dependencias vulnerables
-- Recomendaciones automáticas de actualización
-- Alertas relacionadas con paquetes de Node.js
+- Se detectaron 15 vulnerabilidades en dependencias Node.js
+- 3 vulnerabilidades bajas
+- 3 moderadas
+- 9 altas
 
-La herramienta permitió identificar vulnerabilidades conocidas dentro de las 
-dependencias instaladas por la aplicación.
+npm audit permitió identificar paquetes vulnerables y proponer acciones automáticas de 
+mitigación mediante `npm audit fix`.
 
 ### 2. Resultado de GitHub Actions
-
 Se configuró un workflow automático mediante GitHub Actions utilizando el archivo:
-
 ```text
 .github/workflows/security.yml
 ```
+Comprobación realizada:
+- Subida de cambios al repositorio GitHub
+- Ejecución automática del pipeline DevSecOps
+
 Resultado obtenido:
 - Ejecución automática del pipeline DevSecOps
 - Construcción automática del entorno Docker
-- Ejecución de comprobaciones automáticas de seguridad
+- Ejecución de comprobaciones automáticas de seguridad 
+- Detección automática de errores dentro del pipeline
 
-GitHub Actions permitió automatizar parte de las tareas de seguridad 
-y verificación del proyecto.
+Durante las pruebas, GitHub Actions generó alertas relacionadas con la ejecución del 
+workflow y configuración del pipeline, demostrando el funcionamiento real de la 
+automatización DevSecOps integrada en el proyecto.
+
+GitHub Actions permitió automatizar tareas de validación y seguridad dentro del 
+flujo de desarrollo.
 
 ### 3. Resultado del análisis de Docker
-La aplicación fue ejecutada mediante Docker Compose.
+Comando ejecutado:
+```bash
+docker compose up --build
+```
 Resultado obtenido:
-- Construcción correcta del contenedor
-- Aislamiento del entorno de ejecución
-- Reproducción consistente del entorno de pruebas
+- Construcción correcta del contenedor Docker
+- Inicio correcto de la aplicación Node.js
+- Inicialización correcta de SQLite
+- Aplicación accesible desde `http://localhost:3001`
+- Funcionamiento correcto de la To-Do App desde navegador
 
-Docker permitió verificar que la aplicación puede ejecutarse en un entorno 
-controlado y reproducible.
+Durante la prueba se comprobó que Docker y Docker Compose permiten 
+desplegar la aplicación de forma reproducible y aislada.
 
 ### 4. Resultado de .gitignore
 Se configuró un archivo `.gitignore` para evitar subir archivos innecesarios 
 o sensibles al repositorio.
+```text
 
-Archivos protegidos:
-- `node_modules/`
-- `.idea/`
-- `.DS_Store`
-- `.env`
+node_modules/
+.idea/
+.DS_Store
+.env
+```
 
 Resultado obtenido:
-- Reducción de archivos innecesarios en GitHub
-- Mejora de seguridad del repositorio
-- Prevención de exposición accidental de información local
+- Prevención de subida de archivos locales del entorno PyCharm
+- Eliminación de archivos innecesarios del repositorio GitHub
+- Mejora de organización y limpieza del proyecto
+- Protección frente a exposición accidental de información local
+
+La configuración del archivo `.gitignore` permitió controlar correctamente los 
+archivos incluidos dentro del repositorio.
 
 ### 5. Resultado de GitHub Security / Dependabot
 GitHub analizó automáticamente el repositorio y ejecutó comprobaciones relacionadas 
@@ -215,6 +234,13 @@ Resultado obtenido:
 - Monitorización automática del repositorio
 - Revisión automática de dependencias
 - Integración de seguridad dentro del flujo DevSecOps
+
+Durante las pruebas, GitHub Actions detectó incidencias relacionadas con la configuración 
+automática del workflow, demostrando el funcionamiento real de las comprobaciones automáticas 
+dentro del entorno DevSecOps.
+
+GitHub Security y Dependabot permitieron añadir supervisión continua sobre dependencias y 
+automatizaciones del proyecto.
 
 ## 8.3 Alteraciones realizadas para provocar alertas de seguridad
 Durante la actividad se realizaron pequeñas modificaciones y configuraciones sobre el 
